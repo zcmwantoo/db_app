@@ -78,7 +78,7 @@ export const NavCont = styled.div`
 export const NavItem = styled.div`
     span{
         font-size:24px;
-        vertical-align: middle;
+        /* vertical-align: middle; */
     }
     margin-right:10px;
     width:100px;
@@ -107,24 +107,24 @@ export const NavItem = styled.div`
 `
 const openMove = keyframes`
     from{
-        width: 140px;
+        width: 200px;
     }
     to{
-        width: 200px;
+        width: 260px;
     }
 `
 const closeMove = keyframes`
     from{
-        width: 200px;
+        width: 260px;
     }
     to{
-        width: 140px;
+        width: 200px;
     }
 `
 export const NavSearch = styled.input.attrs({
     placeholder:"搜索"
 })`
-    width:140px;
+    width:200px;
     height:38px;
     border:none;
     outline:none;
@@ -137,7 +137,7 @@ export const NavSearch = styled.input.attrs({
         color:#999;
     }
     &.bg-width {
-        width:200px;
+        width:260px;
         animation: ${openMove} 0.5s;
     }
     &.bg-close {
@@ -148,7 +148,7 @@ export const NavSearch = styled.input.attrs({
 export const SearchBg = styled.div`
     float: left;
     position: relative;
-    .iconfont{
+    .search{
         position: absolute;
         top: 16px;
         right: 15px;
@@ -160,5 +160,126 @@ export const SearchBg = styled.div`
     .getfocus{
         background-color: #777;
         color: #fff;
+    }
+`
+// 搜索框组件
+export const SearchInfo = styled.div`
+    position: absolute;
+    top: 56px;
+    left: 8px;
+    width:250px;
+    /* height: 200px; */
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,.2);
+    border-radius: 4px;
+    box-sizing: border-box;
+    &::before{
+        content: "";
+        left: 27px;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        top: -5px;
+        z-index: -1;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 0 8px rgba(0,0,0,.2);
+        box-sizing: border-box;
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 12px solid transparent;
+        border-bottom-color: #fff;
+        left: 20px;
+        bottom: 99%;
+        box-sizing: border-box;
+    }
+    &.hidden{
+        visibility: hidden;
+        opacity: 0;
+    }
+`
+export const InfoTitle = styled.div`
+    color: #969696;
+    justify-content: bottom;
+    margin-bottom:20px;
+    height: 20px;
+    line-height: 20px;
+    padding: 20px 20px 10px;
+    span{
+        font-size: 14px; 
+    }
+    a{
+        font-size: 13px;
+        float: right;
+        cursor: pointer;
+    }
+    a:hover{
+        color: #2f2f2f;
+    }
+`
+export const InfoContentList = styled.div`
+    padding: 0 20px 10px 20px;
+    font-size: 12px;
+    color: #787878;
+    border-bottom: 1px solid #f0f0f0;
+`
+export const ListItem = styled.div`
+    margin-right: 10px;
+    line-height: 28px;
+    display:inline-block;
+    margin-bottom: 10px;
+    a{
+        cursor: pointer;
+        padding: 2px 6px;
+        font-size: 12px;
+        color: #787878;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    a:hover{
+        color: #333;
+        border: 1px solid #b4b4b4;
+    }
+`
+export const SearchTips = styled.div`
+    padding: 5px;
+    ul,li{
+        list-style: none;
+    }
+    a{
+        display: block;
+        height: 40px;
+        line-height: 20px;
+        padding: 10px 15px;
+        font-size: 14px;
+        color: #333;
+        position: relative;
+        box-sizing:border-box;
+        cursor: pointer;
+    }
+    a:hover{
+        background-color: #f0f0f0;
+        border-radius: 4px;
+    }
+    .history{
+        margin-right: 10px;
+        font-size: 18px;
+        color: #787878;
+        float: left;
+    }
+    .font{
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+        padding-right: 30px;
+        color:#787878;
     }
 `

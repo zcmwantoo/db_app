@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import {
     Head,
     Nav,
@@ -10,8 +10,14 @@ import {
     NavCont,
     NavItem,
     NavSearch,
-    SearchBg
+    SearchBg,
+    SearchInfo,
+    InfoTitle,
+    InfoContentList,
+    ListItem,
+    SearchTips
 } from './style';
+import  {actionCreators} from './store';
 // 无状态头部组件
 const Header = (props) => {
     return (
@@ -32,7 +38,28 @@ const Header = (props) => {
                             onBlur = {props.loseFocus}
                             onFocus = {props.getFocus}
                         ></NavSearch>
-                        <span className={`iconfont ${props.focus?'getfocus':''}`}>&#xe6a8;</span>
+                        <span className={`iconfont search ${props.focus?'getfocus':''}`}>&#xe6a8;</span>
+                        <SearchInfo
+                            className={props.focus?"":"hidden"}
+                        >
+                            <InfoTitle>
+                                <span>热门搜索</span>
+                                <a><span className="iconfont">&#xe610;换一批</span></a>
+                            </InfoTitle>
+                            <InfoContentList>
+                                {props.contentList.map((item) => {
+                                    return  <ListItem key={item}>
+                                                <a>{item}</a>
+                                            </ListItem>
+                                })}
+                            </InfoContentList>
+                            <SearchTips>
+                                <ul>
+                                    <li><a><span className="iconfont history">&#xe6be;</span><span className="font">react</span></a></li>
+                                    <li><a><span className="iconfont history">&#xe6be;</span><span className="font">styled-components</span></a></li>
+                                </ul>
+                            </SearchTips>
+                        </SearchInfo>
                     </SearchBg>
                 </NavCont>
             </Nav>
@@ -41,21 +68,18 @@ const Header = (props) => {
 }
 const mapStateToProps = (state) => {
     return {
-        focus : state.header.focus
+        focus : state.get('header').get('focus'),
+        contentList : state.get('header').get('contentList')
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         loseFocus() {
-            const action = {
-                type:'lose_focus'
-            }
+            const action = actionCreators.loseFocusAction();
             dispatch(action);
         },
         getFocus() {
-            const action = {
-                type:'get_focus'
-            }
+            const action = actionCreators.getFocusAction();
             dispatch(action);
         }
     }
