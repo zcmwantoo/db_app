@@ -278,7 +278,6 @@ export const SearchTips = styled.div`
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        display: block;
         padding-right: 30px;
         color:#787878;
     }
