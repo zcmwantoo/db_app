@@ -199,10 +199,6 @@ export const SearchInfo = styled.div`
         bottom: 99%;
         box-sizing: border-box;
     }
-    &.hidden{
-        visibility: hidden;
-        opacity: 0;
-    }
 `
 export const InfoTitle = styled.div`
     color: #969696;
