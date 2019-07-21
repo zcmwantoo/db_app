@@ -218,6 +218,11 @@ export const InfoTitle = styled.div`
     a:hover{
         color: #2f2f2f;
     }
+    .skin{
+        display: block;
+        float: left;
+        transition: all 0.3s ease-in;
+    }
 `
 export const InfoContentList = styled.div`
     padding: 0 20px 10px 20px;

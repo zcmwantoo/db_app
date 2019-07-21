@@ -21,7 +21,7 @@ import  {actionCreators} from './store';
 // 无状态头部组件
 class Header extends React.Component{
     render() {
-        const {focus,loseFocus,getFocus,mouseIn} = this.props;
+        const {focus,loseFocus,getFocus,mouseIn,contentList} = this.props;
         return (
             <Head>
                 <Nav>
@@ -38,7 +38,7 @@ class Header extends React.Component{
                             <NavSearch
                                 className={focus === null?'':(focus?'bg-width':'bg-close')}
                                 onBlur = {loseFocus}
-                                onFocus = {getFocus}
+                                onFocus = {() => {getFocus(contentList)}}
                             ></NavSearch>
                             <span className={`iconfont search ${focus?'getfocus':''}`}>&#xe6a8;</span>
                             {mouseIn||focus?this.searchInfo():''}
@@ -71,8 +71,8 @@ class Header extends React.Component{
                 <InfoTitle>
                     <span>热门搜索</span>
                     <a
-                        onClick = { () => {changeList(page,totalPage) }}
-                    ><span className="iconfont">&#xe610;换一批</span></a>
+                        onClick = { () => {changeList(page,totalPage,this.refs.changeOrigin) }}
+                    ><span className="iconfont skin" ref="changeOrigin">&#xe610;</span><span>换一批</span></a>
                 </InfoTitle>
                 <InfoContentList>
                    {newList}
@@ -107,9 +107,8 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(action);
         },
         // 获取焦点
-        getFocus() {
-            const actionList = actionCreators.getList();
-            dispatch(actionList);
+        getFocus(contentList) {
+            !contentList.size && dispatch(actionCreators.getList());
             const action = actionCreators.getFocusAction();
             dispatch(action);
         },
@@ -122,9 +121,16 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actionCreators.mouseOut())
         },
         // 切换列表
-        changeList(page,totalPage) {
+        changeList(page,totalPage,skin) {
+            let thisOrigin = skin.style.transform.replace(/[^0-9]/ig, "");
+            if(thisOrigin) {
+                skin.style.transform = `rotate(${parseInt(thisOrigin)+360}deg)`;
+            }else{
+                skin.style.transform = 'rotate(360deg)';
+            }
+            // 
             let newPage = page < totalPage ? ( page + 1 ) : 1;
-            dispatch(actionCreators.changePage(newPage))
+            dispatch(actionCreators.changePage(newPage));
         }
     }
 }
