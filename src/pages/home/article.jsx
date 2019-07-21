@@ -15,14 +15,13 @@ class Article extends React.Component{
     }
     render() {
         const { noteList } = this.props;
-        console.log(noteList.toJS());
         return (
             <div>
                 <NoteList>
                     {noteList.toJS().map((item,index) => {
                         return (
                             <Item key={index}>
-                                {item.imgUrl?<a className="img-content"><img className="img-true" src={item.imgUrl}></img></a>:""}
+                                {item.imgUrl?<a className="img-content"><img alt="" className="img-true" src={item.imgUrl}></img></a>:""}
                                 <Content className={item.imgUrl?"have-img":""}>
                                     <Title>{item.title}</Title>
                                     <Abstract>{item.content}</Abstract>

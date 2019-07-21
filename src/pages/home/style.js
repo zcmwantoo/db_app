@@ -7,15 +7,15 @@ export const Box = styled.div`
 `
 export const Left = styled.div`
     box-sizing: border-box;
-    width: 640px;
+    width: 620px;
     float: left;
     padding: 30px 15px;
 `
 export const Right = styled.div`
     box-sizing: border-box;
-    width: 240px;
+    width: 280px;
     float: right;
-    padding: 30px 15px;
+    padding: 30px 0;
 `
 /**
  * article部分
@@ -68,7 +68,21 @@ export const Abstract = styled.p`
     line-height: 24px;
     color: #999;
 `
-
  /**
-  * 
+  * classification部分
   */
+ export const ImgList = styled.div`
+    padding-bottom: 15px;
+ `
+ export const ItemA = styled.a`
+    cursor: pointer;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    img{
+        border-radius: 5px;
+        width: 100%;
+        min-height: 50px;
+        vertical-align: middle;
+    }
+ `
