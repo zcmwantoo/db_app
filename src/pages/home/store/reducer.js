@@ -2,7 +2,8 @@ import { fromJS } from 'immutable'
 import { actionTypes } from './index'
 const defaultState = fromJS({
     noteList:[],                //文章列表
-    imgList:[]                 //板块分类
+    imgList:[] ,                //板块分类
+    authorsList:[]              //作者列表
 })
 export default (state = defaultState , action) => {
     switch(action.type) {
@@ -10,6 +11,8 @@ export default (state = defaultState , action) => {
             return state.set("noteList",action.data);
         case actionTypes.GET_IMG_LIST:
             return state.set("imgList",action.data);
+        case actionTypes.GET_AUTHORS:
+            return state.set("authorsList",action.data);
         default:
             return state;
     }

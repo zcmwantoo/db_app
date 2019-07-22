@@ -14,6 +14,13 @@ const defaultImgList = (data) => {
         data:fromJS(data)
     }
 }
+// 派发获取作者action到reducer
+const defaultGetAuthors = (data) => {
+    return {
+        type:types.GET_AUTHORS,
+        data:fromJS(data)
+    }
+}
 // 获取首页文章列表
 export const getArticlesList = () => {
     return (dispatch) => {
@@ -31,6 +38,16 @@ export const getImgList = () => {
         axios.get('./api/imgList.json').then(
             (res) => {
                 dispatch(defaultImgList(res.data.imgList));
+            }
+        ).catch(err => console.log(err))
+    }
+}
+// 异步获取作者列表
+export const getAuthorsList = () => {
+    return (dispatch) => {
+        axios.get('./api/authors.json').then(
+            (res) => {
+                dispatch(defaultGetAuthors(res.data.authors));
             }
         ).catch(err => console.log(err))
     }

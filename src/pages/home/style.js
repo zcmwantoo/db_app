@@ -86,3 +86,61 @@ export const Abstract = styled.p`
         vertical-align: middle;
     }
  `
+/**
+ * author部分
+ */
+export const AuList = styled.div`
+    margin-bottom: 20px;
+    p{
+        color:#969696;
+        font-size: 14px;
+        a{
+            cursor: pointer;
+            float: right;
+        }
+    }
+`
+export const Auul = styled.ul`
+    margin-bottom: 20px;
+    list-style: none;
+`
+export const AuItem = styled.li`
+    margin-top: 15px;
+    overflow: hidden;
+    a.img{
+        float: left;
+        width: 48px;
+        height: 48px;
+        margin-right: 10px;
+        cursor: pointer;
+        display: block;
+        img{
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+    }
+    a.follow{
+        float: right;
+        margin-top: 5px;
+        padding: 0;
+        font-size: 13px;
+        color: #42c02e;
+        cursor: pointer;
+    }
+    a.author{
+        padding-top: 8px;
+        margin-right: 60px;
+        font-size: 14px;
+        display: block;
+        cursor: pointer;
+        color: #333;
+    }
+    p.cont{
+        margin-top: 8px;
+        font-size: 12px;
+        color: #969696;
+    }
+`

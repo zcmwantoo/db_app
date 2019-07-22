@@ -8,7 +8,6 @@ class ArcIficaton extends React.Component{
         this.props.getImgList();
     }
     render() {
-        console.log(this.props.classImg.toJS())
         return (
             <ImgList>
                 {this.props.classImg.toJS().map((item) => (
