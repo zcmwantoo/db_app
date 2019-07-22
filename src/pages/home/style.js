@@ -20,6 +20,20 @@ export const Right = styled.div`
 /**
  * article部分
  */
+export const ToLink = styled.a.attrs({
+    target: '_blank',
+    href: 'https://www.jianshu.com/p/a37929ad1994?utm_medium=index-banner&utm_source=desktop'
+})`
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    img{
+        width: 100%;
+    }
+`
 export const NoteList = styled.ul`
     list-style: none;
 `
@@ -67,6 +81,23 @@ export const Abstract = styled.p`
     font-size: 13px;
     line-height: 24px;
     color: #999;
+`
+export const AddManyList = styled.button`
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 20px;
+    background: #a5a5a5;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    &:hover{
+        background: #9b9b9b;
+    }
+    cursor: pointer;
 `
  /**
   * classification部分

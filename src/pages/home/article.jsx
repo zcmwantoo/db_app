@@ -5,7 +5,9 @@ import {
     Item,
     Title,
     Content,
-    Abstract
+    Abstract,
+    AddManyList,
+    ToLink
 } from './style'
 import { actionCreators } from './store'
 class Article extends React.Component{
@@ -14,9 +16,12 @@ class Article extends React.Component{
         getList();
     }
     render() {
-        const { noteList } = this.props;
+        const { noteList ,getNextList } = this.props;
         return (
             <div>
+                <ToLink>
+                    <img src="//upload.jianshu.io/admin_banners/web_images/4680/f3832b8ec185f3772a31960a2494964132f29ce0.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540"></img>
+                </ToLink>
                 <NoteList>
                     {noteList.toJS().map((item,index) => {
                         return (
@@ -30,6 +35,9 @@ class Article extends React.Component{
                         )
                     })}
                 </NoteList>
+                <AddManyList
+                    onClick={getNextList}
+                >阅读更多</AddManyList>
             </div>
         )
     }
@@ -43,6 +51,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getList(){
             const action = actionCreators.getArticlesList();
+            dispatch(action);
+        },
+        getNextList() {
+            const action = actionCreators.getNextArticleList();
             dispatch(action);
         }
     }

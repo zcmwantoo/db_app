@@ -21,6 +21,13 @@ const defaultGetAuthors = (data) => {
         data:fromJS(data)
     }
 }
+// 派发获取更多action
+const addManyList = (data) => {
+    return {
+        type:types.GET_MANY_LIST,
+        data
+    }
+}
 // 获取首页文章列表
 export const getArticlesList = () => {
     return (dispatch) => {
@@ -48,6 +55,16 @@ export const getAuthorsList = () => {
         axios.get('./api/authors.json').then(
             (res) => {
                 dispatch(defaultGetAuthors(res.data.authors));
+            }
+        ).catch(err => console.log(err))
+    }
+}
+// 加载更多
+export const getNextArticleList = () => {
+    return (dispatch) => {
+        axios.get('./api/articlesAdd.json').then(
+            (res) => {
+                dispatch(addManyList(res.data.noteList));
             }
         ).catch(err => console.log(err))
     }

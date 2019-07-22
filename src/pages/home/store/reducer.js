@@ -13,6 +13,9 @@ export default (state = defaultState , action) => {
             return state.set("imgList",action.data);
         case actionTypes.GET_AUTHORS:
             return state.set("authorsList",action.data);
+        case actionTypes.GET_MANY_LIST:
+            // console.log(action.data,)
+            return state.set("noteList",fromJS(state.get("noteList").toJS().concat(action.data)));
         default:
             return state;
     }
