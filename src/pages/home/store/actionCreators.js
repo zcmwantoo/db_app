@@ -28,6 +28,13 @@ const addManyList = (data) => {
         data
     }
 }
+// 是否显示返回顶部按钮
+export const backTopShow = (show) => {
+    return {
+        type:types.SET_BACKTOP_SHOW,
+        show
+    }
+}
 // 获取首页文章列表
 export const getArticlesList = () => {
     return (dispatch) => {

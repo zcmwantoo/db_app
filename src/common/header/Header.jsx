@@ -17,15 +17,18 @@ import {
     ListItem,
     SearchTips
 } from './style';
+import { Link } from 'react-router-dom'
 import  {actionCreators} from './store';
 // 无状态头部组件
-class Header extends React.Component{
+class Header extends React.PureComponent{
     render() {
         const {focus,loseFocus,getFocus,mouseIn,contentList} = this.props;
         return (
             <Head>
                 <Nav>
-                    <Logo></Logo>
+                    <Link to="/">
+                        <Logo/>
+                    </Link>
                     <Write><span className="iconfont">&#xe6a4;</span>写文章</Write>
                     <Sign>注册</Sign>
                     <SignIn>登录</SignIn>

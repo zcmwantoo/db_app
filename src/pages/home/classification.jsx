@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import { ImgList , ItemA } from './style'
 
-class ArcIficaton extends React.Component{
+class ArcIficaton extends React.PureComponent{
     componentDidMount() {
         this.props.getImgList();
     }

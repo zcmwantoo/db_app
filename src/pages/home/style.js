@@ -67,14 +67,19 @@ export const Content = styled.div`
     &.have-img{
         padding-right: 165px;
     }
-`
-export const Title = styled.a`
-    margin: -7px 0 4px;
-    display: inherit;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.5;
-    cursor: pointer;
+    .to-details{
+        text-decoration: none;
+        color: #2f2f2f;
+        margin: -7px 0 4px;
+        display: inherit;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.5;
+        cursor: pointer;
+    }
+    .to-details:hover{
+        text-decoration: underline;
+    }
 `
 export const Abstract = styled.p`
     margin: 0 0 8px;
@@ -173,5 +178,22 @@ export const AuItem = styled.li`
         margin-top: 8px;
         font-size: 12px;
         color: #969696;
+    }
+`
+// 回到顶部
+export const BackTop = styled.div`
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 1010;
+    width: 50px;
+    height: 50px;
+    background: inherit;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    &:hover{
+        background: hsla(0,0%,71%,.1);
     }
 `

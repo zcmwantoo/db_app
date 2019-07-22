@@ -17,9 +17,7 @@ export const Nav = styled.div`
     color: #333;
     height:100%;
 `
-export const Logo = styled.a.attrs({
-    href:"/"
-})`
+export const Logo = styled.div`
     display:block;
     float: left;
     width:100px;

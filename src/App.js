@@ -14,9 +14,9 @@ function App() {
 			<div className="App">
 				<GlobalStyled />
 				<GlobalFont />
-				<Header />
 				{/* 路由 */}
 				<BrowserRouter>
+				<Header />
 				<div style={{"paddingTop":"56px"}}>
 					<Route path='/' exact component={Home}></Route>
 					<Route path='/details' component={Details}></Route>

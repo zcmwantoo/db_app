@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import {AuList ,Auul ,AuItem} from './style'
-class Author extends React.Component{
+class Author extends React.PureComponent{
     componentDidMount(){
         this.props.getAuthors();
     }
