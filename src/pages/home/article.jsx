@@ -5,18 +5,19 @@ import {
     Item,
     Content,
     Abstract,
-    AddManyList,
     ToLink
 } from './style'
 import {Link} from 'react-router-dom'
 import { actionCreators } from './store'
+// 引入组件
+import { Button } from '../../common/components'
 class Article extends React.PureComponent{
     componentDidMount(){
         const { getList } = this.props;
         getList();
     }
     render() {
-        const { noteList ,getNextList } = this.props;
+        const { noteList ,getNextList} = this.props;
         return (
             <div>
                 <ToLink>
@@ -28,7 +29,7 @@ class Article extends React.PureComponent{
                             <Item key={index}>
                                 {item.imgUrl?<a className="img-content"><img alt="" className="img-true" src={item.imgUrl}></img></a>:""}
                                 <Content className={item.imgUrl?"have-img":""}>
-                                    <Link to="/details" className="to-details">
+                                    <Link to={`details/${item.id}`} className="to-details">
                                         {item.title}
                                     </Link>
                                     <Abstract>{item.content}</Abstract>
@@ -37,9 +38,13 @@ class Article extends React.PureComponent{
                         )
                     })}
                 </NoteList>
-                <AddManyList
+                <Button 
+                    type="dark"
+                    block
+                    fillet
                     onClick={getNextList}
-                >阅读更多</AddManyList>
+                    text="阅读更多"
+                />
             </div>
         )
     }

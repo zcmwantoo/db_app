@@ -19,7 +19,7 @@ function App() {
 				<Header />
 				<div style={{"paddingTop":"56px"}}>
 					<Route path='/' exact component={Home}></Route>
-					<Route path='/details' component={Details}></Route>
+					<Route path='/details/:id' component={Details}></Route>
 				</div>
 				</BrowserRouter>
 			</div>

@@ -48,7 +48,7 @@ class Home extends React.PureComponent{
                 clearInterval(timer);
             }
             window.document.documentElement.scrollTop = scroll - speed;
-        },10)
+        },10);
     }
 }
 const mapState = (state) => {

@@ -87,23 +87,6 @@ export const Abstract = styled.p`
     line-height: 24px;
     color: #999;
 `
-export const AddManyList = styled.button`
-    margin-top: 20px;
-    width: 100%;
-    border-radius: 20px;
-    background: #a5a5a5;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    color: #fff;
-    font-size: 15px;
-    border: none;
-    outline: none;
-    &:hover{
-        background: #9b9b9b;
-    }
-    cursor: pointer;
-`
  /**
   * classification部分
   */
