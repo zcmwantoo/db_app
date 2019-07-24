@@ -55,7 +55,7 @@ export const Sign = styled.a`
     cursor: pointer;
     text-align:center;
 `
-export const SignIn = styled.a`
+export const SignIn = styled.span`
     float: right;
     margin: 11px 6px 0 10px;
     font-size: 18px;

@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Home from './pages/home'
 import Details from './pages/details'
+import Login from './pages/login'
 function App() {
 	return (
 		<Provider store={store}>
@@ -20,6 +21,7 @@ function App() {
 				<div style={{"paddingTop":"56px"}}>
 					<Route path='/' exact component={Home}></Route>
 					<Route path='/details/:id' component={Details}></Route>
+					<Route path='/login' component={Login}></Route>
 				</div>
 				</BrowserRouter>
 			</div>

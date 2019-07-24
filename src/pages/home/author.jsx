@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import {AuList ,Auul ,AuItem} from './style'
+import {Button} from '../../common/components'
 class Author extends React.PureComponent{
     componentDidMount(){
         this.props.getAuthors();
@@ -26,6 +27,7 @@ class Author extends React.PureComponent{
                         </AuItem>
                     ))}
                 </Auul>
+                <Button text="获取更多" block type="primary"/>
             </AuList>
         )
     }

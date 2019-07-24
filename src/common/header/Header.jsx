@@ -31,7 +31,7 @@ class Header extends React.PureComponent{
                     </Link>
                     <Write><span className="iconfont">&#xe6a4;</span>写文章</Write>
                     <Sign>注册</Sign>
-                    <SignIn>登录</SignIn>
+                    <Link to="/login"><SignIn>登录</SignIn></Link>
                     <NavCont>
                         <NavItem className="left toIndex"><span className="iconfont">&#xe60c;</span>首页</NavItem>
                         <NavItem className="left">下载<span className="iconfont">&#xe626;</span></NavItem>

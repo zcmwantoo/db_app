@@ -10,11 +10,12 @@ class Button extends React.Component{
     render() {
         return (
             <Btn 
-                className={`${this.props.type} ${this.props.block?"block":""} ${this.props.fillet?"fillet":""}`}
+                className={`${this.props.type} ${this.props.block?"block":""} ${this.props.fillet?"fillet":""} ${this.props.className}`}
                 onClick={this.props.onClick}
                 onMouseEnter={(e) => {this.animate(e,this.refs.btnPosition,this.refs.circleDom)}}
                 onMouseLeave={() => {this.endAnimate()}}
                 ref="btnPosition"
+                style={this.props.style}
             >
                 {this.props.text}
                 <div className={this.state.startTransform?"ripple rippleEffect":"ripple"} ref="circleDom"></div>
@@ -25,9 +26,9 @@ class Button extends React.Component{
         this.setState({
             startTransform:true
         })
-        let domMarginTop = dom.offsetTop;
-        let domMarginLeft = dom.offsetLeft;
-
+        let domMarginTop = dom.getBoundingClientRect().top+document.documentElement.scrollTop;
+        let domMarginLeft = dom.getBoundingClientRect().left+document.documentElement.scrollLeft;
+        
         let domHeight = dom.offsetHeight;
         let domWidth = dom.offsetWidth;
 
@@ -43,7 +44,6 @@ class Button extends React.Component{
         circleDom.style.height=circleWidth+"px";
         circleDom.style.top=circleY+"px";
         circleDom.style.left=circleX+"px";
-        
         
     }
     endAnimate=() => {

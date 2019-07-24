@@ -3,10 +3,12 @@ import { combineReducers } from 'redux-immutable'
 import {reducer as HeaderReducer} from '../common/header/store'
 import { reducer as HomeReducer} from '../pages/home/store'
 import {reducer as DetailsReducer} from '../pages/details/store'
+import LoginReducer from '../pages/login/store/reducer'
 // 将拆分的小的reducer整合成大的reducer
 const reducer = combineReducers({
     header: HeaderReducer,
     home: HomeReducer,
-    details: DetailsReducer
+    details: DetailsReducer,
+    login: LoginReducer
 })
 export default reducer
