@@ -1,14 +1,28 @@
 import * as actionTypes from './actionType'
-
-export const nameChange = (name) => {
+import axios from 'axios'
+// 退出登录
+export const dropOut = () => {
     return {
-        type:actionTypes.NAME_CHANGE,
-        name
+        type:actionTypes.GO_LOGINOUT,
     }
 }
-export const passChange = (pass) => {
+// 登录
+const loginSys = () => {
     return {
-        type:actionTypes.PASS_CHANGE,
-        pass
+        type:actionTypes.LOGIN_SYSTEM
+    }
+}
+export const loginSystem = (user,pass) => {
+    return (dispatch) => {
+        axios.get("./api/login.json").then(
+            (res) => {
+                if(res.data.login) {
+                    dispatch(loginSys())
+                }else{
+                    alert("用户名或密码错误");
+                }
+                
+            }
+        ).catch(err => console.log(err));
     }
 }

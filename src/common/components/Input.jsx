@@ -4,17 +4,20 @@ export default class Input extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            moveTop:false
+            moveTop:false,
+            value:""
         }
     }
     render() {
         return (
-            <Ipt placeholder={this.props.placeholder} className={this.state.moveTop?"move":(this.props.value?"move":null)}>
+            <Ipt placeholder={this.props.placeholder} className={this.state.moveTop?"move":(this.state.value?"move":null)}>
                 <IptVal
-                    value={this.props.value}
-                    onChange={this.props.onChange}
+                    type={this.props.type}
+                    value={this.state.value}
+                    onChange={(e) => {this.valueChange(e)}}
                     onFocus={() =>{this.placeholderMove()}}
                     onBlur={() => {this.placeholderNoMove()}}
+                    ref={this.props.innerRef}
                 />
             </Ipt>
         )
@@ -27,6 +30,11 @@ export default class Input extends React.Component {
     placeholderNoMove = () =>{
         this.setState({
             moveTop:false
+        })
+    }
+    valueChange = (e) => {
+        this.setState({
+            value:e.target.value
         })
     }
 }

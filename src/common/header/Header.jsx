@@ -19,10 +19,11 @@ import {
 } from './style';
 import { Link } from 'react-router-dom'
 import  {actionCreators} from './store';
+import * as loginAction from '../../pages/login/store/actionCreators'
 // 无状态头部组件
 class Header extends React.PureComponent{
     render() {
-        const {focus,loseFocus,getFocus,mouseIn,contentList} = this.props;
+        const {focus,loseFocus,getFocus,mouseIn,contentList ,loginIn ,signOut} = this.props;
         return (
             <Head>
                 <Nav>
@@ -31,7 +32,11 @@ class Header extends React.PureComponent{
                     </Link>
                     <Write><span className="iconfont">&#xe6a4;</span>写文章</Write>
                     <Sign>注册</Sign>
-                    <Link to="/login"><SignIn>登录</SignIn></Link>
+                    {loginIn ? 
+                    <SignIn
+                        onClick = {signOut}
+                    >退出</SignIn> : 
+                    <Link to="/login"><SignIn>登录</SignIn></Link>}
                     <NavCont>
                         <NavItem className="left toIndex"><span className="iconfont">&#xe60c;</span>首页</NavItem>
                         <NavItem className="left">下载<span className="iconfont">&#xe626;</span></NavItem>
@@ -100,7 +105,8 @@ const mapStateToProps = (state) => {
         contentList : state.get('header').get('contentList'),
         mouseIn : state.get('header').get('mouseIn'),
         page : state.get('header').get('page'),
-        totalPage : state.get('header').get('totalPage')
+        totalPage : state.get('header').get('totalPage'),
+        loginIn : state.getIn(["login","loginIn"])
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -134,6 +140,10 @@ const mapDispatchToProps = (dispatch) => {
             // 
             let newPage = page < totalPage ? ( page + 1 ) : 1;
             dispatch(actionCreators.changePage(newPage));
+        },
+        // 退出登录
+        signOut() {
+            dispatch(loginAction.dropOut());
         }
     }
 }

@@ -1,16 +1,17 @@
 import { fromJS } from 'immutable'
 import * as actionTypes from './actionType'
 const defaultState = fromJS({
-    name:'',
-    pass:''
+    loginIn: false
 })
 
 export default (state = defaultState,action) => {
     switch(action.type) {
-        case actionTypes.NAME_CHANGE:
-            return state.set("name",action.name);
-        case actionTypes.PASS_CHANGE:
-            return state.set("pass",action.pass);
+        // 退出登录
+        case actionTypes.GO_LOGINOUT:
+            return state.set("loginIn",false);
+        // 登录
+        case actionTypes.LOGIN_SYSTEM:
+            return state.set("loginIn",true);
         default:
             return state;
     }
