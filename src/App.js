@@ -23,6 +23,7 @@ function App() {
 					<Route path='/details/:id' component={Details}></Route>
 					<Route path='/login' component={Login}></Route>
 				</div>
+				<h1>hello</h1>
 				</BrowserRouter>
 			</div>
 		</Provider>
